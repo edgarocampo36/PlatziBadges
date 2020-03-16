@@ -5,12 +5,11 @@
 
 // container.appendChild(element);
 
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-const element = <h1>Hello, Platzi Badges!</h1>;
+import Badge from "./components/Badge";
 
-const container = document.getElementById('app');
+const container = document.getElementById("app");
 
-// ReactDOM.render(__qué__, __dónde__);
-ReactDOM.render(element, container);
+ReactDOM.render(<Badge />, container);
