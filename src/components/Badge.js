@@ -23,7 +23,7 @@ class Badge extends React.Component {
         </div>
 
         <div className="Badge__footer">
-          <p>#platziconf</p>
+          <p>#{this.props.hashtag}</p>
         </div>
       </div>
     );

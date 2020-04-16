@@ -12,16 +12,16 @@ class BadgeNew extends React.Component {
       lastname: "",
       email: "",
       jobtitle: "",
-      twitter: ""
-    }
+      twitter: "",
+    },
   };
 
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({
       form: {
         ...this.state.form,
-        [e.target.name]: e.target.value
-      }
+        [e.target.name]: e.target.value,
+      },
     });
   };
 

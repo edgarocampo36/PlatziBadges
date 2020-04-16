@@ -9,11 +9,11 @@ class BadgeForm extends React.Component {
     });
   }; */
 
-  handleClick = e => {
+  handleClick = (e) => {
     console.log("Button was clicked");
   };
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form was submit");
     console.log(this.state);
