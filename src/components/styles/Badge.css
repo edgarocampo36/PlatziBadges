@@ -30,6 +30,10 @@
   background: #f4f4f7;
 }
 
+.Badge__section-twitter {
+  color: cornflowerblue;
+}
+
 .Badge__avatar {
   border-radius: 50%;
   margin-right: 1rem;

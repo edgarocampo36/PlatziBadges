@@ -1,0 +1,33 @@
+.Notfound {
+  width: 100%;
+  min-height: calc(100vh - 60px);
+  background: url("../../images/stars.svg"), #1b1b25;
+  background-repeat: repeat;
+
+  color: #ffffff;
+
+  display: flex;
+  align-items: center;
+}
+
+.Notfound__col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Notfound__col h1 {
+  align-self: flex-end;
+}
+
+.Notfound__col-img {
+  max-width: 70%;
+  height: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .Notfound__col {
+    align-items: flex-start;
+  }
+}

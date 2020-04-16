@@ -11,19 +11,15 @@ class Badge extends React.Component {
         </div>
 
         <div className="Badge__section-name">
-          <img
-            className="Badge__avatar"
-            src="https://www.gravatar.com/avatar/b66e425f8811974401bd35eebbe9fd20?s=40&d=https%3A%2F%2Fi.ibb.co%2Fn0YycJ7%2Fyoconefecto.jpg"
-            alt="Avatar"
-          />
+          <img className="Badge__avatar" src={this.props.avatar} alt="Avatar" />
           <h1>
-            Edgar <br /> Ocampo{" "}
+            {this.props.firstName} <br /> {this.props.lastName}
           </h1>
         </div>
 
         <div className="Badge__section-info">
-          <p>Frontend Developer</p>
-          <p>@edgarocampo36</p>
+          <h3>{this.props.jobTitle}</h3>
+          <div className="Badge__section-twitter">@{this.props.twitter}</div>
         </div>
 
         <div className="Badge__footer">
