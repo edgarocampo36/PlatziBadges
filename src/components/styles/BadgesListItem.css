@@ -1,0 +1,45 @@
+.BadgesListItem__container {
+  background: #ffffff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 8px 8px 8px 8px;
+  overflow: hidden;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.BadgesListItem__section {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.BadgesListItem__section-twitter {
+  color: cornflowerblue;
+}
+
+.BadgesListItem__section h6 {
+  margin: 0;
+  font-weight: bold;
+}
+
+.BadgesListItem__section p {
+  margin: 0;
+}
+
+.Badge__section-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0;
+  background: #f4f4f7;
+}
+
+.BadgesListItem__avatar {
+  border-radius: 50%;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  width: 80px;
+  height: 80px;
+}

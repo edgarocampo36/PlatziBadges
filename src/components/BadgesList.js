@@ -1,35 +1,81 @@
-/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import "./styles/BadgesList.css";
+import { Link } from "react-router-dom";
+import BadgesListItem from "./BadgesListItem";
 
-class BadgesList extends React.Component {
-  render() {
+//CustomHook de busqueda(filtro) con uso de useMemo para mejorar la performance
+function useSearchBadges(badges) {
+  const [query, setQuery] = React.useState("");
+  const [filteredBadges, setFilteredBadges] = React.useState(badges);
+
+  React.useMemo(() => {
+    const result = badges.filter((badge) => {
+      return `${badge.firstName} ${badge.lastName}`
+        .toLowerCase()
+        .includes(query.toLowerCase());
+    });
+
+    setFilteredBadges(result);
+  }, [badges, query]);
+
+  return { setQuery, filteredBadges };
+}
+
+function BadgesList(props) {
+  const badges = props.badges;
+
+  const { query, setQuery, filteredBadges } = useSearchBadges(badges);
+
+  if (filteredBadges.length === 0) {
     return (
-      <ul className="list-unstyled">
-        {this.props.badges.map((badge) => {
-          return (
-            <div className="BadgesList__container">
-              <li key={badge.id}>
-                <div className="BadgesList__section">
-                  <img className="BadgeList__avatar" src={badge.avatarUrl} />
+      <div>
+        <div className="form-group">
+          <label>Filter Badges</label>
+          <input
+            type="text"
+            className="form-control"
+            value={query}
+            onChange={(e) => {
+              setQuery(e.target.value);
+            }}
+          />
+        </div>
 
-                  <div>
-                    <h6>
-                      {badge.firstName} {badge.lastName}
-                    </h6>
-                    <p className="BadgesList__section-twitter">
-                      @{badge.twitter}
-                    </p>
-                    <p>{badge.jobTitle}</p>
-                  </div>
-                </div>
-              </li>
-            </div>
+        <h3>No badges were found</h3>
+        <Link className="btn btn-primary" to="/badges/new">
+          Create new badge
+        </Link>
+      </div>
+    );
+  }
+
+  return (
+    <div className="BadgesList">
+      <div className="form-group">
+        <label>Filter Badges</label>
+        <input
+          type="text"
+          className="form-control"
+          value={query}
+          onChange={(e) => {
+            setQuery(e.target.value);
+          }}
+        />
+      </div>
+
+      <ul className="list-unstyled">
+        {filteredBadges.map((badge) => {
+          return (
+            <li key={badge.id}>
+              <Link className="text-reset" to={`/badges/${badge.id}`}>
+                <BadgesListItem badge={badge} />
+              </Link>
+            </li>
           );
         })}
       </ul>
-    );
-  }
+    </div>
+  );
 }
 
 export default BadgesList;
